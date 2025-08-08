@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>调用Android Java方法</title>
+    <script>
+        function callNativeMethod() {
+            try {
+                // 检查TideApp对象是否存在
+                if (window.TideApp && typeof window.TideApp.getUser === 'function') {
+                    // 调用Android方法
+                    var result = TideApp.getUser();
+                    
+                    // 打印到控制台
+                    console.log("从Android获取的用户信息:", result);
+                    
+                    // 显示在页面上
+                    document.getElementById("result").innerText = "用户信息: " + result;
+                } else {
+                    console.error("TideApp.getUser 不是函数或未找到");
+                    document.getElementById("result").innerText = "错误: 无法调用原生方法";
+                }
+            } catch (e) {
+                console.error("调用原生方法时出错:", e);
+                document.getElementById("result").innerText = "异常: " + e.message;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>调用Android原生方法示例</h1>
+    <button onclick="callNativeMethod()">获取用户信息</button>
+    <div id="result" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+ 
+    <script>
+        // 页面加载完成后可以自动调用（可选）
+        // window.onload = callNativeMethod;
+    </script>
+</body>
+</html>
