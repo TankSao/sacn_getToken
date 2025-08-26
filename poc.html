@@ -130,12 +130,12 @@
             }
             
             // 解析并格式化Cookie
-            const cookieList = cookies.split(';').map(cookie => {
-                const [name, value] = cookie.split('=').map(item => item.trim());
-                return { name, value };
-            });
+            //const cookieList = cookies.split(';').map(cookie => {
+                //const [name, value] = cookie.split('=').map(item => item.trim());
+               // return { name, value };
+            //});
             
-            showResult(resultDiv, JSON.stringify(cookieList,, 2), 'success');
+            showResult(resultDiv, cookies , 'success');
         }
  
         // 显示结果的通用函数
