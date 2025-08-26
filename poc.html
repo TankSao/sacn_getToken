@@ -113,7 +113,7 @@
                 }
                 
                 const data = await response.json();
-                showResult(resultDiv, JSON.stringify(data,, 2), 'success');
+                showResult(resultDiv, JSON.stringify(data, 2), 'success');
             } catch (error) {
                 showResult(resultDiv, `获取用户信息失败: ${error.message}`, 'error');
             }
